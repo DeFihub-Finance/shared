@@ -31,7 +31,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-          registry-url: https://npm.pkg.github.com/
+          registry-url: https://registry.npmjs.org/
       - run: npm ci
       - run: git config --global user.name '[bot] github-actions'
       - run: git config --global user.email 'bot@defihub.fi'
