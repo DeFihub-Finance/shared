@@ -1,0 +1,47 @@
+{
+    "name": "@defihub/shared",
+    "version": "3.0.93",
+    "description": "",
+    "main": "dist/cjs/index.js",
+    "module": "dist/esm/index.js",
+    "scripts": {
+        "lint": "eslint --ext \".js,.ts,.vue\" --ignore-path .gitignore .",
+        "build": "npm run generate:types && npm run lint && rimraf dist && npm run build:cjs && npm run build:esm",
+        "build:cjs": "tsc --project tsconfig.cjs.json && tsc-alias -p tsconfig.cjs.json",
+        "build:esm": "tsc --project tsconfig.esm.json && tsc-alias -p tsconfig.esm.json",
+        "deploy": "npm run build && npm version patch && npm publish",
+        "deploy:minor": "npm run build && npm version minor && npm publish",
+        "deploy:major": "npm run build && npm version major && npm publish",
+        "deploy:current": "npm run build && npm publish",
+        "generate:types": "typechain --target ethers-v6 --out-dir src/Types/Contracts 'src/Assets/abi/**/*.json'",
+        "test": "jest"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/types": "^7.23.5",
+        "@ryze-blockchain/eslint-config": "^0.0.23",
+        "@typechain/ethers-v6": "^0.5.1",
+        "@types/bad-words": "^3.0.3",
+        "@types/jest": "^29.5.13",
+        "@types/node": "^20.10.4",
+        "@typescript-eslint/eslint-plugin": "^6.13.2",
+        "@typescript-eslint/parser": "^6.13.2",
+        "@typescript-eslint/types": "^6.13.2",
+        "jest": "^29.7.0",
+        "rimraf": "^5.0.5",
+        "ts-jest": "^29.2.5",
+        "tsc-alias": "^1.8.10",
+        "typechain": "^8.3.2",
+        "typescript": "^5.4.5"
+    },
+    "dependencies": {
+        "@ryze-blockchain/ethereum": "^2.0.9",
+        "@uniswap/sdk-core": "5.3.1",
+        "@uniswap/v3-sdk": "3.13.1",
+        "bad-words": "^3.0.4",
+        "dayjs": "^1.11.10",
+        "jsbi": "^3.1.4"
+    }
+}

@@ -1,0 +1,23 @@
+[
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes",
+                "name": "inputData",
+                "type": "bytes"
+            },
+            {
+                "internalType": "bytes",
+                "name": "revertData",
+                "type": "bytes"
+            }
+        ],
+        "name": "LowLevelCallFailed",
+        "type": "error"
+    }
+]

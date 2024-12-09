@@ -1,0 +1,1645 @@
+[
+    {
+        "inputs": [],
+        "name": "InvalidInvestment",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "InvalidNumberOfSwaps",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "InvalidPoolId",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "InvalidTotalPercentage",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "InvalidZeroAddress",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "LimitExceeded",
+        "type": "error"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes",
+                "name": "inputData",
+                "type": "bytes"
+            },
+            {
+                "internalType": "bytes",
+                "name": "revertData",
+                "type": "bytes"
+            }
+        ],
+        "name": "LowLevelCallFailed",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "PercentageTooHigh",
+        "type": "error"
+    },
+    {
+        "inputs": [],
+        "name": "Unauthorized",
+        "type": "error"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "previousAdmin",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "newAdmin",
+                "type": "address"
+            }
+        ],
+        "name": "AdminChanged",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "beacon",
+                "type": "address"
+            }
+        ],
+        "name": "BeaconUpgraded",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "strategist",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
+        "name": "CollectedStrategistRewards",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "from",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "to",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "bytes",
+                "name": "data",
+                "type": "bytes"
+            }
+        ],
+        "name": "Fee",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint32",
+                "name": "discountPercentage",
+                "type": "uint32"
+            }
+        ],
+        "name": "HotStrategistPercentageUpdated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "strategies",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "HottestStrategiesUpdated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint8",
+                "name": "version",
+                "type": "uint8"
+            }
+        ],
+        "name": "Initialized",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint8",
+                "name": "max",
+                "type": "uint8"
+            }
+        ],
+        "name": "MaxHotStrategiesUpdated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "previousOwner",
+                "type": "address"
+            },
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "OwnershipTransferred",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "strategyId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "positionId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[][]",
+                "name": "dcaWithdrawnAmounts",
+                "type": "uint256[][]"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "vaultWithdrawnAmount",
+                "type": "uint256[]"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[][]",
+                "name": "liquidityWithdrawnAmounts",
+                "type": "uint256[][]"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "buyWithdrawnAmounts",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "PositionClosed",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "strategyId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "positionId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "dcaWithdrawnAmounts",
+                "type": "uint256[]"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[][]",
+                "name": "liquidityWithdrawnAmounts",
+                "type": "uint256[][]"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "buyWithdrawnAmounts",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "PositionCollected",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "user",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "strategyId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "positionId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "inputToken",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "inputTokenAmount",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "stableAmountAfterFees",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256[]",
+                "name": "dcaPositionIds",
+                "type": "uint256[]"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "vault",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    }
+                ],
+                "indexed": false,
+                "internalType": "struct StrategyStorage.VaultPosition[]",
+                "name": "vaultPositions",
+                "type": "tuple[]"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "contract INonfungiblePositionManager",
+                        "name": "positionManager",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "tokenId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "liquidity",
+                        "type": "uint128"
+                    }
+                ],
+                "indexed": false,
+                "internalType": "struct StrategyStorage.LiquidityPosition[]",
+                "name": "liquidityPositions",
+                "type": "tuple[]"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "contract IERC20Upgradeable",
+                        "name": "token",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    }
+                ],
+                "indexed": false,
+                "internalType": "struct StrategyStorage.BuyPosition[]",
+                "name": "tokenPositions",
+                "type": "tuple[]"
+            }
+        ],
+        "name": "PositionCreated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "uint32",
+                "name": "discountPercentage",
+                "type": "uint32"
+            }
+        ],
+        "name": "StrategistPercentageUpdated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "strategist",
+                "type": "address"
+            },
+            {
+                "indexed": false,
+                "internalType": "uint256",
+                "name": "strategyId",
+                "type": "uint256"
+            },
+            {
+                "indexed": false,
+                "internalType": "bytes32",
+                "name": "metadataHash",
+                "type": "bytes32"
+            }
+        ],
+        "name": "StrategyCreated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": false,
+                "internalType": "address",
+                "name": "treasury",
+                "type": "address"
+            }
+        ],
+        "name": "TreasuryUpdated",
+        "type": "event"
+    },
+    {
+        "anonymous": false,
+        "inputs": [
+            {
+                "indexed": true,
+                "internalType": "address",
+                "name": "implementation",
+                "type": "address"
+            }
+        ],
+        "name": "Upgraded",
+        "type": "event"
+    },
+    {
+        "inputs": [],
+        "name": "PRODUCT_BUY",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "PRODUCT_DCA",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "PRODUCT_LIQUIDITY",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "PRODUCT_VAULTS",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "buyProduct",
+        "outputs": [
+            {
+                "internalType": "contract UseFee",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_positionId",
+                "type": "uint256"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "minOutputToken0",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "minOutputToken1",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct StrategyPositionManager.LiquidityMinOutputs[]",
+                "name": "_liquidityMinOutputs",
+                "type": "tuple[]"
+            }
+        ],
+        "name": "closePosition",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_positionId",
+                "type": "uint256"
+            }
+        ],
+        "name": "collectPosition",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "collectStrategistRewards",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "components": [
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint208",
+                                "name": "poolId",
+                                "type": "uint208"
+                            },
+                            {
+                                "internalType": "uint16",
+                                "name": "swaps",
+                                "type": "uint16"
+                            },
+                            {
+                                "internalType": "uint8",
+                                "name": "percentage",
+                                "type": "uint8"
+                            }
+                        ],
+                        "internalType": "struct StrategyStorage.DcaInvestment[]",
+                        "name": "dcaInvestments",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "address",
+                                "name": "vault",
+                                "type": "address"
+                            },
+                            {
+                                "internalType": "uint8",
+                                "name": "percentage",
+                                "type": "uint8"
+                            }
+                        ],
+                        "internalType": "struct StrategyStorage.VaultInvestment[]",
+                        "name": "vaultInvestments",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "contract INonfungiblePositionManager",
+                                "name": "positionManager",
+                                "type": "address"
+                            },
+                            {
+                                "internalType": "uint8",
+                                "name": "percentage",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "contract IERC20Upgradeable",
+                                "name": "token0",
+                                "type": "address"
+                            },
+                            {
+                                "internalType": "contract IERC20Upgradeable",
+                                "name": "token1",
+                                "type": "address"
+                            },
+                            {
+                                "internalType": "uint24",
+                                "name": "fee",
+                                "type": "uint24"
+                            },
+                            {
+                                "internalType": "bool",
+                                "name": "usePercentageBounds",
+                                "type": "bool"
+                            },
+                            {
+                                "internalType": "int24",
+                                "name": "lowerBound",
+                                "type": "int24"
+                            },
+                            {
+                                "internalType": "int24",
+                                "name": "upperBound",
+                                "type": "int24"
+                            }
+                        ],
+                        "internalType": "struct StrategyStorage.LiquidityInvestment[]",
+                        "name": "liquidityInvestments",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "contract IERC20Upgradeable",
+                                "name": "token",
+                                "type": "address"
+                            },
+                            {
+                                "internalType": "uint8",
+                                "name": "percentage",
+                                "type": "uint8"
+                            }
+                        ],
+                        "internalType": "struct StrategyStorage.BuyInvestment[]",
+                        "name": "buyInvestments",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "deadline",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint8",
+                                "name": "v",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "bytes32",
+                                "name": "r",
+                                "type": "bytes32"
+                            },
+                            {
+                                "internalType": "bytes32",
+                                "name": "s",
+                                "type": "bytes32"
+                            }
+                        ],
+                        "internalType": "struct SubscriptionManager.Permit",
+                        "name": "permit",
+                        "type": "tuple"
+                    },
+                    {
+                        "internalType": "bytes32",
+                        "name": "metadataHash",
+                        "type": "bytes32"
+                    }
+                ],
+                "internalType": "struct StrategyManager.CreateStrategyParams",
+                "name": "_params",
+                "type": "tuple"
+            }
+        ],
+        "name": "createStrategy",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "dca",
+        "outputs": [
+            {
+                "internalType": "contract DollarCostAverage",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getHotStrategies",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "",
+                "type": "uint256[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_investor",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_index",
+                "type": "uint256"
+            }
+        ],
+        "name": "getPosition",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "strategyId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "closed",
+                        "type": "bool"
+                    }
+                ],
+                "internalType": "struct StrategyStorage.Position",
+                "name": "",
+                "type": "tuple"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_investor",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "_positionId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getPositionInvestments",
+        "outputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "dcaPositions",
+                "type": "uint256[]"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "vault",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct StrategyStorage.VaultPosition[]",
+                "name": "vaultPositions",
+                "type": "tuple[]"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "contract INonfungiblePositionManager",
+                        "name": "positionManager",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "tokenId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "uint128",
+                        "name": "liquidity",
+                        "type": "uint128"
+                    }
+                ],
+                "internalType": "struct StrategyStorage.LiquidityPosition[]",
+                "name": "liquidityPositions",
+                "type": "tuple[]"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "contract IERC20Upgradeable",
+                        "name": "token",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "amount",
+                        "type": "uint256"
+                    }
+                ],
+                "internalType": "struct StrategyStorage.BuyPosition[]",
+                "name": "buyPositions",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_investor",
+                "type": "address"
+            }
+        ],
+        "name": "getPositions",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "strategyId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "closed",
+                        "type": "bool"
+                    }
+                ],
+                "internalType": "struct StrategyStorage.Position[]",
+                "name": "",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_investor",
+                "type": "address"
+            }
+        ],
+        "name": "getPositionsLength",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "getStrategiesLength",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_strategist",
+                "type": "address"
+            }
+        ],
+        "name": "getStrategistRewards",
+        "outputs": [
+            {
+                "internalType": "uint256",
+                "name": "",
+                "type": "uint256"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_strategyId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getStrategyCreator",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_strategyId",
+                "type": "uint256"
+            }
+        ],
+        "name": "getStrategyInvestments",
+        "outputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint208",
+                        "name": "poolId",
+                        "type": "uint208"
+                    },
+                    {
+                        "internalType": "uint16",
+                        "name": "swaps",
+                        "type": "uint16"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "percentage",
+                        "type": "uint8"
+                    }
+                ],
+                "internalType": "struct StrategyStorage.DcaInvestment[]",
+                "name": "dcaInvestments",
+                "type": "tuple[]"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "vault",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "percentage",
+                        "type": "uint8"
+                    }
+                ],
+                "internalType": "struct StrategyStorage.VaultInvestment[]",
+                "name": "vaultInvestments",
+                "type": "tuple[]"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "contract INonfungiblePositionManager",
+                        "name": "positionManager",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "percentage",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "contract IERC20Upgradeable",
+                        "name": "token0",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "contract IERC20Upgradeable",
+                        "name": "token1",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint24",
+                        "name": "fee",
+                        "type": "uint24"
+                    },
+                    {
+                        "internalType": "bool",
+                        "name": "usePercentageBounds",
+                        "type": "bool"
+                    },
+                    {
+                        "internalType": "int24",
+                        "name": "lowerBound",
+                        "type": "int24"
+                    },
+                    {
+                        "internalType": "int24",
+                        "name": "upperBound",
+                        "type": "int24"
+                    }
+                ],
+                "internalType": "struct StrategyStorage.LiquidityInvestment[]",
+                "name": "liquidityInvestments",
+                "type": "tuple[]"
+            },
+            {
+                "components": [
+                    {
+                        "internalType": "contract IERC20Upgradeable",
+                        "name": "token",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "percentage",
+                        "type": "uint8"
+                    }
+                ],
+                "internalType": "struct StrategyStorage.BuyInvestment[]",
+                "name": "buyInvestments",
+                "type": "tuple[]"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "hotStrategistPercentage",
+        "outputs": [
+            {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "address",
+                        "name": "owner",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "treasury",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "strategyInvestor",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "address",
+                        "name": "strategyPositionManager",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "contract IERC20Upgradeable",
+                        "name": "stable",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "contract SubscriptionManager",
+                        "name": "subscriptionManager",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "contract DollarCostAverage",
+                        "name": "dca",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "contract VaultManager",
+                        "name": "vaultManager",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "contract LiquidityManager",
+                        "name": "liquidityManager",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "contract UseFee",
+                        "name": "buyProduct",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "contract ZapManager",
+                        "name": "zapManager",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint8",
+                        "name": "maxHottestStrategies",
+                        "type": "uint8"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "strategistPercentage",
+                        "type": "uint32"
+                    },
+                    {
+                        "internalType": "uint32",
+                        "name": "hotStrategistPercentage",
+                        "type": "uint32"
+                    }
+                ],
+                "internalType": "struct StrategyManager.InitializeParams",
+                "name": "_initializeParams",
+                "type": "tuple"
+            }
+        ],
+        "name": "initialize",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "components": [
+                    {
+                        "internalType": "uint256",
+                        "name": "strategyId",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "contract IERC20Upgradeable",
+                        "name": "inputToken",
+                        "type": "address"
+                    },
+                    {
+                        "internalType": "uint256",
+                        "name": "inputAmount",
+                        "type": "uint256"
+                    },
+                    {
+                        "internalType": "bytes",
+                        "name": "inputTokenSwap",
+                        "type": "bytes"
+                    },
+                    {
+                        "internalType": "bytes[]",
+                        "name": "dcaSwaps",
+                        "type": "bytes[]"
+                    },
+                    {
+                        "internalType": "bytes[]",
+                        "name": "vaultSwaps",
+                        "type": "bytes[]"
+                    },
+                    {
+                        "internalType": "bytes[]",
+                        "name": "buySwaps",
+                        "type": "bytes[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "bytes",
+                                "name": "swapToken0",
+                                "type": "bytes"
+                            },
+                            {
+                                "internalType": "bytes",
+                                "name": "swapToken1",
+                                "type": "bytes"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "swapAmountToken0",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "swapAmountToken1",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "int24",
+                                "name": "tickLower",
+                                "type": "int24"
+                            },
+                            {
+                                "internalType": "int24",
+                                "name": "tickUpper",
+                                "type": "int24"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "amount0Min",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint256",
+                                "name": "amount1Min",
+                                "type": "uint256"
+                            }
+                        ],
+                        "internalType": "struct StrategyInvestor.LiquidityInvestZapParams[]",
+                        "name": "liquidityZaps",
+                        "type": "tuple[]"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "deadline",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint8",
+                                "name": "v",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "bytes32",
+                                "name": "r",
+                                "type": "bytes32"
+                            },
+                            {
+                                "internalType": "bytes32",
+                                "name": "s",
+                                "type": "bytes32"
+                            }
+                        ],
+                        "internalType": "struct SubscriptionManager.Permit",
+                        "name": "investorPermit",
+                        "type": "tuple"
+                    },
+                    {
+                        "components": [
+                            {
+                                "internalType": "uint256",
+                                "name": "deadline",
+                                "type": "uint256"
+                            },
+                            {
+                                "internalType": "uint8",
+                                "name": "v",
+                                "type": "uint8"
+                            },
+                            {
+                                "internalType": "bytes32",
+                                "name": "r",
+                                "type": "bytes32"
+                            },
+                            {
+                                "internalType": "bytes32",
+                                "name": "s",
+                                "type": "bytes32"
+                            }
+                        ],
+                        "internalType": "struct SubscriptionManager.Permit",
+                        "name": "strategistPermit",
+                        "type": "tuple"
+                    }
+                ],
+                "internalType": "struct StrategyInvestor.InvestParams",
+                "name": "_params",
+                "type": "tuple"
+            }
+        ],
+        "name": "invest",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256",
+                "name": "_strategyId",
+                "type": "uint256"
+            }
+        ],
+        "name": "isHot",
+        "outputs": [
+            {
+                "internalType": "bool",
+                "name": "",
+                "type": "bool"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "liquidityManager",
+        "outputs": [
+            {
+                "internalType": "contract LiquidityManager",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "maxHottestStrategies",
+        "outputs": [
+            {
+                "internalType": "uint8",
+                "name": "",
+                "type": "uint8"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "owner",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "proxiableUUID",
+        "outputs": [
+            {
+                "internalType": "bytes32",
+                "name": "",
+                "type": "bytes32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "renounceOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint32",
+                "name": "_hotStrategistPercentage",
+                "type": "uint32"
+            }
+        ],
+        "name": "setHotStrategistPercentage",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint256[]",
+                "name": "_strategyIds",
+                "type": "uint256[]"
+            }
+        ],
+        "name": "setHottestStrategies",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint8",
+                "name": "_maxHottestStrategies",
+                "type": "uint8"
+            }
+        ],
+        "name": "setMaxHottestStrategies",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "uint32",
+                "name": "_strategistPercentage",
+                "type": "uint32"
+            }
+        ],
+        "name": "setStrategistPercentage",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "_treasury",
+                "type": "address"
+            }
+        ],
+        "name": "setTreasury",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "stable",
+        "outputs": [
+            {
+                "internalType": "contract IERC20Upgradeable",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "strategistPercentage",
+        "outputs": [
+            {
+                "internalType": "uint32",
+                "name": "",
+                "type": "uint32"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "strategyInvestor",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "strategyPositionManager",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "subscriptionManager",
+        "outputs": [
+            {
+                "internalType": "contract SubscriptionManager",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newOwner",
+                "type": "address"
+            }
+        ],
+        "name": "transferOwnership",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "treasury",
+        "outputs": [
+            {
+                "internalType": "address",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newImplementation",
+                "type": "address"
+            }
+        ],
+        "name": "upgradeTo",
+        "outputs": [],
+        "stateMutability": "nonpayable",
+        "type": "function"
+    },
+    {
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "newImplementation",
+                "type": "address"
+            },
+            {
+                "internalType": "bytes",
+                "name": "data",
+                "type": "bytes"
+            }
+        ],
+        "name": "upgradeToAndCall",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "vaultManager",
+        "outputs": [
+            {
+                "internalType": "contract VaultManager",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    },
+    {
+        "inputs": [],
+        "name": "zapManager",
+        "outputs": [
+            {
+                "internalType": "contract ZapManager",
+                "name": "",
+                "type": "address"
+            }
+        ],
+        "stateMutability": "view",
+        "type": "function"
+    }
+]
