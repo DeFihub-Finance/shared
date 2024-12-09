@@ -17,6 +17,7 @@ jobs:
         with:
           node-version: 20
       - run: npm ci
+      - run: npm run generate:types
       - run: npm test
 
   publish-gpr:
